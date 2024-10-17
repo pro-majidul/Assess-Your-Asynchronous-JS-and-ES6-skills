@@ -43,6 +43,7 @@ const findItems = (item) => {
     fetch(`https://openapi.programming-hero.com/api/peddy/category/${item}`)
         .then(res => res.json())
         .then(data => {
+            sortVariableData = data.data;
             changeColorButton();
             const buttonColor = document.getElementById(`Change-${item}`);
             buttonColor.classList.add("bg-green-500");
