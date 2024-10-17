@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Platform</title>
+    <!-- fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <!-- Daisyui CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        primaryColor: '#7D7D7d',
+                        btnColor: '#0E7A81'
+                    },
+                    fontFamily: {
+                        inter: "Inter",
+                        lato: "Lato",
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="font-lato ">
+    <header class="py-5">
+        <!-- navbar area  -->
+        <nav class="w-11/12 mx-auto">
+            <div class="navbar bg-base-100">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content bg-base-100  rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            <li class="font-semibold text-xl ml-3 text-[#131313]"><a>Shop</a></li>
+                            <li class="font-semibold text-xl ml-3 text-[#131313]"><a>Contact</a></li>
+                            <li class="font-semibold text-xl ml-3 text-[#131313]"><a>Home</a></li>
+                        </ul>
+                    </div>
+                    <div class="items-center flex">
+                        <img src="./images/logo.webp" alt="">
+                        <h3 class="font-bold text-4xl ml-3">Peddy</h3>
+                    </div>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal  px-1">
+                        <li class="font-semibold text-xl hover:bg-btnColor hover:text-white rounded text-[#131313]">
+                            <a>Shop</a>
+                        </li>
+                        <li
+                            class="font-semibold text-xl hover:bg-btnColor hover:text-white rounded mx-6 text-[#131313]">
+                            <a>Contact</a>
+                        </li>
+                        <li class="font-semibold text-xl hover:bg-btnColor hover:text-white rounded text-[#131313]">
+                            <a>Home</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <div class=" border-2 border-green-300 hover:bg-btnColor cursor-pointer p-2 rounded-full">
+                        <img class="w-8" src="./images/icons.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- banner area added -->
+        <div class="md:w-8/12 w-11/12 mx-auto text-center my-10 space-y-8">
+            <p class="text-primaryColor text-xl font-bold">Bringing Families Together ❤️‍🔥 </p>
+            <h3 class="md:text-6xl text-3xl font-extrabold text-black ">Your Path to Adoption <br> Starts Here</h3>
+            <p class=" text-primaryColor">It is a long established fact that a reader will be distracted by the readable
+                content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
+            <a href="#main-section" class="btn bg-btnColor text-white ">View More</a>
+
+            <!-- spinner -->
+            <div class="flex items-center justify-center relative">
+                <span id="spinner" class="loading hidden loading-bars text-error loading-lg fixed"></span>
+            </div>
+
+            <!-- dog image section  -->
+            <div class="flex items-center justify-center my-5">
+                <img src="./images/pet.webp" alt="">
+
+            </div>
+
+        </div>
+
+    </header>
+    <main class="w-11/12 mx-auto">
+
+        <!-- show modal section -->
+        <section id="show-modal-container"></section>
+
+        <!-- adopt modal section -->
+        <section id="adopted-modal-counter"></section>
+
+
+        <!-- adopt your best friend -->
+        <section id="main-section" class="w-11/12 mx-auto py-10">
+            <h3 class="text-3xl font-bold text-center">Adopt Your Best Friend</h3>
+            <p class="w-8/12 mx-auto text-center py-5 font-normal text-primaryColor">It is a long established fact that
+                a reader will be distracted by the readable content of a page when looking at its layout. The point of
+                using Lorem Ipsum is that it has a.</p>
+            <div id="best-friend-card" class="md:flex  justify-around items-center"></div>
+        </section>
+        <!-- best deal section -->
+        <section class=" pb-10">
+            <div class="flex justify-between items-center my-5">
+                <p class="text-xl  font-bold">Best Deal For you</p>
+                <button onclick="DesendingPrize()" class="btn text-white hover:text-black bg-btnColor">Sort By
+                    Prize</button>
+            </div>
+            <div class="md:flex gap-5 justify-between ">
+                <!-- left side -->
+                <div id="card-container" class="md:grid md:w-9/12 grid-cols-3 items-center gap-5">
+
+                </div>
+
+
+                <!-- rigth side -->
+                <div class=" border md:w-3/12 p-4 rounded-xl   shadow">
+                    <div id="image-container" class=" md:grid grid-cols-2 gap-3"></div>
+
+                </div>
+        </section>
+
+    </main>
+    <footer class=" bg-[#131313] ">
+        <div class="footer w-11/12 mx-auto md:flex justify-between text-white p-10">
+            <nav class="space-y-2">
+                <div class="flex items-center">
+                    <img src="./images/logo.webp" alt="">
+                    <h3 class="font-bold text-3xl ml-3">Peddy</h3>
+                </div>
+                <address class="text-primaryColor">Location: av. Washington 165, NY CA 54003</address>
+                <p class="text-primaryColor">Phone: +31 85 964 47 25</p>
+                <p class="text-primaryColor"> Email: info@yourdomain.com</p>
+                <p class="text-primaryColor">Openings hours: 9.00 AM - 5.00 PM</p>
+                <div class="grid grid-flow-col items-center gap-4">
+                    <a>
+                        <img src="https://img.icons8.com/?size=48&id=118497&format=png" alt="">
+                    </a>
+                    <a>
+                        <img src="./images/Vector.png" alt="">
+                    </a>
+                    <a>
+                        <img src="https://img.icons8.com/?size=48&id=9a46bTk3awwI&format=png" alt="">
+                    </a>
+                    <a>
+                        <img src="https://img.icons8.com/?size=48&id=32323&format=png" alt="">
+                    </a>
+                </div>
+
+            </nav>
+            <nav class="space-y-2">
+                <h6 class="text-xl font-bold">Useful Links</h6>
+                <a class="link link-hover text-primaryColor">About Us</a>
+                <a class="link link-hover text-primaryColor">Home</a>
+                <a class="link link-hover text-primaryColor">Animals</a>
+                <a class="link link-hover text-primaryColor">Foundation</a>
+                <a class="link link-hover text-primaryColor">Contact</a>
+            </nav>
+            <nav class="space-y-3">
+                <h6 class="text-xl font-bold">Drop a Message</h6>
+                <input type="email" placeholder="Enter your email" class="input bg-stone-900 join-item" />
+                <button class="btn bg-btnColor w-full">Subscribe</button>
+
+            </nav>
+        </div>
+    </footer>
+    <script src="./javaScript/script.js"></script>
+</body>
+
+</html>
